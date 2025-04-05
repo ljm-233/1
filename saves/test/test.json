@@ -1,0 +1,67 @@
+[
+    {
+        "type": "sleep",
+        "duration": 10.0
+    },
+    {
+        "type": "mouse_click",
+        "button": "left",
+        "x": 531,
+        "y": 65
+    },
+    {
+        "type": "mouse_click",
+        "button": "left",
+        "x": 987,
+        "y": 623
+    },
+    {
+        "type": "mouse_click",
+        "button": "left",
+        "x": 58,
+        "y": 738
+    },
+    {
+        "type": "key_press",
+        "key": "a"
+    },
+    {
+        "type": "key_hotkey",
+        "keys": ["ctrl", "c"]
+    },
+    {
+        "type": "mouse_click",
+        "button": "left",
+        "x": 63,
+        "y": 69
+    },
+    {
+        "type": "mouse_drag",
+        "button": "left",
+        "start_x": 284,
+        "start_y": 213,
+        "end_x": 1194,
+        "end_y": 244,
+        "interval": 1.0,
+        "duration": 1.0
+    },
+    {
+        "type": "mouse_click",
+        "button": "left",
+        "x": 70,
+        "y": 733
+    },
+    {
+        "type": "typewrite",
+        "text": "Hello World",
+        "interval": 0.1
+    },
+    {
+        "type": "key_hotkey",
+        "keys": ["ctrl", "a"]
+    },
+    {
+        "type": "key_press",
+        "key": "backspace"
+    }
+]

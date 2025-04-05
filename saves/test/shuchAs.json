@@ -1,0 +1,29 @@
+[
+    {
+        "type": "key_press",
+        "key": "a"
+    },
+    {
+        "type": "key_hotkey",
+        "keys": ["ctrl", "c"]
+    },
+    {
+        "type": "mouse_click",
+        "button": "left",
+        "x": 100,
+        "y": 200
+    },
+    {
+        "type": "mouse_drag",
+        "button": "left",
+        "start_x": 100,
+        "start_y": 200,
+        "end_x": 300,
+        "end_y": 400
+    },
+    {
+        "type": "typewrite",
+        "text": "Hello, World!",
+        "interval": 0.1
+    }
+]

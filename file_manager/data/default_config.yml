@@ -1,0 +1,41 @@
+# 默认配置文件
+
+# config/log_manager.yml
+file_manager:
+  mode: "logger"  # 运行模式标识
+  channel: "log_operations"  # 绑定的事件通道
+
+  path_template: "logs/{env:APP_ENV}/{date:YYYY-MM-DD}/{service}.log"
+
+  rotation:
+    strategy: "composite"  # 混合策略
+    conditions:
+      - type: "size"
+        limit: "100MB"
+      - type: "time"
+        interval: "1d"  # 每天轮换
+      - type: "session"
+        max_sessions: 5
+
+  format:
+    version: 2
+    structure:
+      timestamp: {"type": "datetime", "format": "iso8601"}
+      level: {"type": "enum", "values": ["DEBUG", "INFO", "WARN", "ERROR"]}
+      message: {"type": "string", "max_length": 1024}
+
+  hooks:
+    pre_write:
+      - name: "sanitize_input"
+        priority: 100
+      - name: "add_system_info"
+        priority: 50
+
+    post_rotate:
+      - name: "archive_old_logs"
+        params:
+          compression: "zstd"
+
+    on_failure:
+      - name: "emergency_dump"
+        fallback_path: "/tmp/emergency.log"
