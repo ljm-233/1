@@ -13,11 +13,22 @@ from EventActuator import Event, get_actuator
 _actuator = get_actuator()
 _processor = get_json_processor()
 
+# 导入基础命令库的库
+import EventActuator.commands.basic
+EventActuator.commands.basic.basic_command_version()  # 冒个泡 告诉你我的大名！！！  # 避免IED提示未使用
+
+# 日志生成器的库
+from EventActuator.commands.LoggerInstructionLibrary import register_commands
+register_commands()  # 确保注册额外命令
+
+# 鼠标电击器的库
+from EventActuator.commands.KeyboardAndMouseOperation import register_commands
+register_commands()  # 确保注册额外命令
 
 async def empty_generator() -> AsyncGenerator[Event, None]:
     """符合规范的初始化空生成器"""
     return
-    yield  # 仅为满足类型提示  请忽略这个弱警告
+    yield  # 仅为满足类型提示  请忽略编辑器的警告
 
 async def command_handler():
     help_text = """

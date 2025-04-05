@@ -2,5 +2,33 @@
     {
         "type": "sleep",
         "duration": 10.0
+    },
+    {
+        "type": "mouse_move",
+        "x": 100,
+        "y": 200
+    },
+    {
+        "type": "keyboard_input",
+        "text": "Hello World"
+    },
+    {
+        "type": "exit",
+        "end": "所有操作已完成"
+    },
+    {
+        "type": "log_open",
+        "path": "logs/app.log",
+        "absolute_path": "False"
+    },
+    {
+        "type": "log_write",
+        "path": "logs/app.log",
+        "content": "User logged in",
+        "terminal_output": "True"
+    },
+    {
+        "type": "log_close",
+        "path": "logs/app.log"
     }
 ]

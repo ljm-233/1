@@ -8,8 +8,13 @@ from typing import Dict
 from EventActuator.core import get_actuator
 import asyncio
 
+__version__ = 0.0  # 这个库估计并不会更新版本 但是导入的时候没事情干
+
 _actuator_instance = get_actuator()
 
+def basic_command_version(printing=True):
+    if printing:
+        print(f"basic_command_lib version:{__version__}")
 
 # ================= 内置命令 =================
 # 通过装饰器注册内置命令
@@ -17,7 +22,7 @@ _actuator_instance = get_actuator()
 async def _sleep(data):  # 移除self参数
     """正确参数签名：只接收data"""
     await asyncio.sleep(data["sleep"])  # 使用异步sleep
-    print(f"已休眠 {data['sleep']} 秒")
+    print(f"已休眠 {data['duration']} 秒")
 
 @_actuator_instance.register("exit")
 async def handle_exit(data):
